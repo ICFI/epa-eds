@@ -1,7 +1,4 @@
-var data = {
-    "count": 10785236,
-
-    "photos": [{ "Site": "AACREA Dairy Project", "Country": "Argentina", "Sector": "Agriculture", "GMISite": "Yes", "lat": -34.590854, "lng": -58.381778, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForAg.aspx?myObjId=", "SiteID": "a09A00000098jsZIAQ", "CityCountry": "Buenos Aires, Argentina" },
+[{ "Site": "AACREA Dairy Project", "Country": "Argentina", "Sector": "Agriculture", "GMISite": "Yes", "lat": -34.590854, "lng": -58.381778, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForAg.aspx?myObjId=", "SiteID": "a09A00000098jsZIAQ", "CityCountry": "Buenos Aires, Argentina" },
 { "Site": "Cordoba Swine Project", "Country": "Argentina", "Sector": "Agriculture", "GMISite": "Yes", "lat": -32.407696, "lng": -63.216947, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForAg.aspx?myObjId=", "SiteID": "a09A00000098jsfIAA", "CityCountry": "Oncativo, Argentina" },
 { "Site": "Coronel Pringles Dairy Project", "Country": "Argentina", "Sector": "Agriculture", "GMISite": "Yes", "lat": -34.580854, "lng": -58.391778, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForAg.aspx?myObjId=", "SiteID": "a09A00000098jsgIAA", "CityCountry": "Coronel Pringles, Argentina" },
 { "Site": "Corral de Bustos Swine Project", "Country": "Argentina", "Sector": "Agriculture", "GMISite": "Yes", "lat": -34.666667, "lng": -58.666667, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForAg.aspx?myObjId=", "SiteID": "a09A00000098jshIAA", "CityCountry": "Castelar, Argentina" },
@@ -2037,4 +2034,3 @@ var data = {
 { "Site": "Nam Son Landfill", "Country": "Vietnam", "Sector": "MSW", "GMISite": "No", "lat": 21.033387, "lng": 105.84124, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForLandfill.aspx?myObjId=", "SiteID": "a09G000000G1bIaIAJ", "CityCountry": "Hanoi, Vietnam" },
 { "Site": "Phuoc Hiep I Sanitary Landfill", "Country": "Vietnam", "Sector": "MSW", "GMISite": "Yes", "lat": 10.774645, "lng": 106.703351, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForLandfill.aspx?myObjId=", "SiteID": "a09A0000004vISMIA2", "CityCountry": "Ho Chi Minh City, Vietnam" },
 { "Site": "Hanoi Wastewater Treatment Plant", "Country": "Vietnam", "Sector": "Wastewater", "GMISite": "No", "lat": 21.033333, "lng": 105.85, "URL": "https://www.globalmethane.org/activities/actSiteDetailsForWw.aspx?myObjId=", "SiteID": "a09G000000WWuVYIA1", "CityCountry": "Vietnam" }]
-    }
