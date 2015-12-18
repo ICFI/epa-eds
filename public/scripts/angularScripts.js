@@ -1,17 +1,21 @@
 
-var app = angular.module("EPAApp", ['ngSanitize'] );
+var app = angular.module("EPA-app", ['ngSanitize'] );
 
 
-app.controller("AppController", function ($scope, $window, $rootScope, $compile, $timeout, $http) {
+app.controller("AppController", function ($window) {
 
+    
+    var vm = this;
+    
+    vm.sidebarOpen=false;
   
-    $window.initMap = function () {
-          $scope.map = new google.maps.Map(document.getElementById('map'), {
+    /*$window.initMap = function () {
+          this.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: -34.397, lng: 150.644},
             zoom: 8
           });
         
-        $scope.loadMapData();
+        this.loadMapData();
     }
     
     
@@ -33,7 +37,22 @@ app.controller("AppController", function ($scope, $window, $rootScope, $compile,
             }
         
         });
+    };*/
+    
+    
+    
+    vm.loadStateData = function () {
+        $.getJSON('data/stateData.json')
+           .then(function(data){    
+            vm.states = data;   
+        });
     };
+    
+    vm.selectedState="intro";
+    
+    vm.loadStateData();
+    
+   
 
 });
 

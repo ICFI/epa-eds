@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="EPAApp" ng-controller="AppController as Master">
+<html ng-app="EPA-app" >
 <head>
     <title>EPA EDS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,11 +8,79 @@
 
 </head>
 
-<body >
+<body ng-controller="AppController as vm">
    
-    <div id="map"></div>
+    <div class="page" id="intro" ng-hide="vm.selectedState!='intro'">
     
-    <canvas id="chart"></canvas>
+        <h1 class="center">COP-21 &amp; You</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <h2 class="center">U.S. Commitment Target</h2>
+        
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+        
+        <button id="stateSelectButton" ng-click="vm.selectedState=null;">Select State</button>
+        
+    </div>
+    
+    <div class="page" id="stateSelector" ng-show="vm.selectedState == null">
+    
+        <span ng-repeat="state in vm.states" class="stateChoice center" ng-click="vm.selectedState=state;">{{state.name}}</span>
+    
+    </div>
+    
+    <div class="page" id="stateInfo" ng-hide="(vm.selectedState == null || vm.selectedState == 'intro')">
+    
+        <div id="menuButton" ng-click="vm.sidebarOpen=!vm.sidebarOpen;"></div>
+    
+        <div id="sidebar" ng-class="{open:vm.sidebarOpen}">
+        
+            <div id="selectAnotherStateButton" ng-click="vm.selectedState=null;">Select Another State</div>
+            <div>
+                <div class="paneButton" id="firstPaneButton" ng-click="">Current State Emissions</div>
+                <div class="paneButton" id="secondPaneButton" ng-click="">Top 10 / Bottom 10 States by Emissions</div>
+                <div class="paneButton" id="thirdPaneButton" ng-click="">Top Users in State</div>
+                <div class="paneButton" id="fourthPaneButton" ng-click="">Power Options in State</div>
+            </div>
+        
+        </div>
+        
+        <div id="currentInfo" >
+        
+            <h2>{{vm.selectedState.name}}</h2>
+            
+            <div>
+                <div id="firstPane">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </div>
+                
+                <div id="secondPane">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </div>
+                
+                <div id="thirdPane">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </div>
+                
+                <div id="fourthPane">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    <!--<div id="map"></div>
+    
+    <canvas id="chart"></canvas>-->
          
 
 </body>
@@ -24,7 +92,7 @@
         <script src="scripts/angularScripts.js"></script>
         <script src="scripts/chart.min.js"></script>
         
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWwaEoCINPjygmsSPHbwLcNfpAsYX34Dw&callback=initMap">
+        <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWwaEoCINPjygmsSPHbwLcNfpAsYX34Dw&callback=initMap">-->
     </script>
         
         
