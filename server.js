@@ -14,9 +14,6 @@ var searchProxy = require("./server/domain/rest-client-domain.js");
 require('./server/services/rest-client-service.js')(searchProxy, app);
 
 
-app.set('views', __dirname + '/server/views');
-app.set('view engine', 'jade');
-
 // Don't allow anyone to put me in a frame.
 app.use(helmet.frameguard('deny'));
 
@@ -24,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.disable("x-powered-by");
 app.use(session({
-    secret: "Kuj6Gf",
+    secret: "Kuj2576Gf",
     key: "sessionId",
     saveUninitialized: true,
     resave: true,
@@ -49,8 +46,6 @@ app.use(helmet.csp({
 
 //Implement CSRF protection
 app.use(csrf());
-
-
 
 // Implement X-XSS-Protection
 app.use(helmet.xssFilter());
@@ -81,10 +76,6 @@ app.use(function (req, resp, next) {
 
 app.set('port', process.env.PORT || 3000);
 app.set('host', process.env.HOST || '0.0.0.0');
-
-app.get('*', function (req, res) {
-   res.render('index');
-});
 
 
 server = app.listen(app.get('port'), app.get('host'), function () {
