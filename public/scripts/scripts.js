@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     
     
-    var lineChartData = {
+    /*var lineChartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
         {
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     // replace chart canvas with chart 
     var c = document.getElementById("chart").getContext("2d");
-    var lineChart = new Chart(c).Line(lineChartData, lineChartOptions);
+    var lineChart = new Chart(c).Line(lineChartData, lineChartOptions);*/
 
    
 
