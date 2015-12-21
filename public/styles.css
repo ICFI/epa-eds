@@ -6,22 +6,41 @@ body {
     margin:0;
     background-attachment:fixed;
     font-family:"Neuton"; 
-    line-height:1.5em;
-    background:#f6f6f6;
-    background: linear-gradient(white, rgb(216, 216, 216));
-    overflow:hidden;
+    background:white;
 }
 
-h1, h2, button, .stateChoice {
+h1, h2, h3, h4, button, #sidebar, .stateChoice, #by2030, .equivalencyBox, .ultrafat, .sources {
     font-family:"Montserrat";
 }
 
+h1 {
+    font-size:42px;
+}
+
+h2 {
+    font-size:32px;
+}
+
+h2, h3, h4 {
+    color: #3D4849;
+}
+
+h3 {
+    font-size:24px;
+}
+
+h4 { 
+    font-size:24px;
+}
+
+p {
+    line-height:1.5em;
+}
+
 .page {
-    padding:2em;
-    position:absolute;
-    width:100%;
-    height:100%;
-    box-sizing:border-box;
+    padding-left:2em;
+    padding-right:2em;   
+    padding-bottom:2em
     /*position:fixed;
     left:0;
     right:0;
@@ -29,8 +48,14 @@ h1, h2, button, .stateChoice {
     bottom:0;*/
 }
 
-#stateSelector {
+#pages {
+    margin-left:30px;
+    transition:all 0.2s ease;
 }
+#pages.sidebaroffset {
+    margin-left:300px;
+}
+
 
 .stateChoice {
     float:left;
@@ -51,93 +76,284 @@ h1, h2, button, .stateChoice {
     text-align:center;
 }
 
-
-
-
-#stateSelectButton {
-    margin: 0 auto;
-    display: block;
-    cursor:pointer;
+.clear {
+    clear:both;
 }
 
-#map { 
-    width:100%;
-    height:50%;    
+.separator {
+    margin-bottom:2em;
+    clear: both;
 }
 
-#chart { 
-    width:100%;
-    height:50%;    
+.greyBox {
+    background-color:#F8F8F8;
+    border: 1px solid #F1F1F1;
+    padding:1em;
+    box-sizing: border-box;
 }
 
-#menuButton {
-    position:fixed;
-    left:2em;
-    top:1em;
-    width:40px;
-    height:38px;
-    background:url('images/menuButton.png') no-repeat left;
-    cursor:pointer;
-    z-index:1;
+.green {
+    color:#197F44;
 }
 
-#menuButton:hover {
-    background-position:right;
+.black {
+    color:#000000;
 }
 
-#sidebar {
-    height: 100%;
-    float: left;
-    width: 0px;
-    background:white;
-    transition:all 0.2s ease;
-    margin-top:-2em;
-    overflow:hidden;
-    white-space: nowrap;  
-    margin-left:-4em;
+.ultrafat {    
+    font-size: 72px;
+    font-weight: 800;
+    margin-top:0;
+    margin-bottom:0;
 }
 
-#sidebar.open {
-    width:300px;    
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    margin-left:-2em;
+.big {
+    font-size:42px;
 }
 
-#currentInfo {
-    height: inherit;
-    padding-left:2em;
-    overflow:hidden;
+.medium {
+    font-size:22px;
+}
+
+.thin {
+    font-weight:100;
+}
+
+.no-bottom-margin {
+    margin-bottom:0;
+}
+
+.sources {
+    padding-top:1em;
+    padding-bottom:1em;
+    border-top:1px solid #E4E4E4;
+    font-weight:bold;
+}
+
+.equivalencyAmount {
+    font-weight:800;
+    font-size:36px !important;
+}
+
+
+
+
+#header {
+    border-bottom:1px solid #E4E4E4;    
+    padding: 1em;
+    margin-left: 2em;
+    margin-bottom: 2em;
     margin-right: 2em;
 }
 
-#selectAnotherStateButton {
-    width:100%;
-    text-align:center;
-    font-size:2em;
+#sidebar {
+    position:fixed;
+    height: 100%;
+    width: 300px;
+    left:-270px;
+    background:#EEEEEE;
+    transition:all 0.2s ease;
+}
+
+#sidebar.open {
+    left:0px;   
+}
+
+#mainSidebarContent {
+    width: 270px;
+    float: left;
+}
+
+#sidebarHandle {
+    width: 30px;
+    float: right;
+    height: 100%;
+    background:#F8F8F8;    
+    border-left: 1px solid #D4D4D4;
+    box-sizing: border-box;
+}
+
+#sidebarHandleButton {
+    background:#F1CD3D;
+    height:30px;
+    margin-top:30px;
     cursor:pointer;
-    margin-top: 0.5em;
+    background:url('images/sidebar/menu-closed-block.png');    
+}
+
+#sidebar.open #sidebarHandleButton {
+    background:url('images/sidebar/menu-opened-block.png');   
+}
+
+#sidebarEPALogo {
+    position:absolute;
+    bottom:1em;
+    left:0;
+    right:30px;
+    margin:auto;
+}
+
+select {
+    padding: 0.8em 0.5em;
+    width: 245px;
+}
+
+#statePower select {
+    float:right;
+}
+
+#statePower h3 {
+    margin-top:0;
+}
+
+#sidebar select {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
     margin-bottom: 1em;
 }
 
-#selectAnotherStateButton:hover {
-    color:#027798;
+#titleDiv {
+    width:auto;
+    overflow:hidden;
 }
+
+#whatIsYourPowerPlan {
+    float:right;
+    width:35%;    
+    padding-left:1em;
+    border-left:1px solid #F1F1F1;
+    height:100%;
+    margin-left:1em;
+}
+
+
+.takingActionPageBox {
+    width:47.5%;
+    float:left;
+    min-height:200px;
+    background-position: right bottom !important;
+    background-repeat: no-repeat !important;
+    margin-bottom:2em;
+    cursor:pointer;    
+    overflow:hidden;
+    padding-right: 160px;
+}
+
+.takingActionPageBox:nth-child(odd) {
+    margin-right:5%;
+}
+
+.takingActionPageBox h4 {
+    margin-top:0;
+}
+
+#powerPageBox {
+    background:url(images/home/epp-box-corner.png);
+}
+
+#trucksPageBox {
+    background:url(images/home/trucks-box-corner.png);
+}
+
+#oilPageBox {
+    background:url(images/home/oil-gas-box-corner.png);
+}
+
+#otherPageBox {
+    background:url(images/home/other-box-corner.png);
+}
+
+#commercialPageBox {
+    background:url(images/home/commercial-box-corner.png);
+}
+
+#seeYourStatesCommitment {
+    background:#F8F8F8;
+    border: 1px solid #F1F1F1;
+    padding:1em;
+    box-sizing: border-box;
+}
+
 
 .paneButton {
     padding: 1.5em 1em;
     border-bottom: 1px solid #D4D4D4;
     cursor:pointer;
+    font-weight:bold;
+    color:#595959;
+}
+
+.paneButton.selected {
+    background:#DDDDDD;
+    color:#2C6187;
+}
+
+.paneButton.unselectable {
+    color:#9C9C9C;
 }
 
 .paneButton:hover{
     background:#F4F7FF;
 }
 
+.paneButton.unselectable:hover{
+    background:#E6E6E6;
+}
+
 .paneButton:first-child {
     border-top:1px solid #D4D4D4;
 }
 
-.paneButton.selected {
-        box-shadow: 0px 12px 28px -15px rgba(0,0,0,0.2) inset,0px -12px 28px -15px rgba(0,0,0,0.2) inset;
-    background: #F9F9F9;
+#whatIsYourPowerPlan h4 {
+    margin-bottom:0.5em;
+}
+
+
+.equivalencyBox {
+    width:32%;
+    margin-right:2%;
+    float:left;
+    height:250px;
+}
+
+.equivalencyBox:last-child {
+    margin-right:0px;
+}
+
+.equivalencyBox p {
+    margin-bottom:0;
+    margin-top:0;
+    font-size:20px;
+}
+
+.equivalencyBox img {
+    display: block;
+    margin: 1em auto;
+}
+
+#seeYourStatesCommitment {
+    text-align:right;
+    background:url(images/power/green-trees.png) no-repeat left bottom;
+    background-size:auto 95%;
+    padding-left:45%;
+    overflow:hidden;
+}
+
+#bluePlug {
+    float:right;
+    height:200px;
+    margin-left:1em;
+    margin-bottom:1em;
+}
+
+#by2030 {
+    height:250px;
+    min-height:250px; 
+}
+
+#by2030 img {
+    height:100%;
+    margin-right: 10%;
+    float: left;
 }

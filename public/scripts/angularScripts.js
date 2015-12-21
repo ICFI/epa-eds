@@ -7,6 +7,11 @@ app.controller("AppController", function ($window) {
     
     var vm = this;
     
+    vm.gallonsFactor = 112.523911;
+    vm.carsFactor = 0.210526;
+    vm.coalFactor = 0.000000263;
+    
+    
     vm.sidebarOpen=false;
   
     /*$window.initMap = function () {
@@ -44,11 +49,12 @@ app.controller("AppController", function ($window) {
     vm.loadStateData = function () {
         $.getJSON('data/stateData.json')
            .then(function(data){    
+            console.log(data);
             vm.states = data;   
         });
     };
     
-    vm.selectedState="intro";
+    vm.selectedPage="takingAction";
     
     vm.loadStateData();
     
@@ -58,6 +64,17 @@ app.controller("AppController", function ($window) {
 
 
 
+
+app.directive('stateSelect', function() {
+  return {
+      restrict: 'EA',
+      replace: 'true',
+      template: '<select class="stateSelect" ng-model="vm.selectedState"><option>Select a State</option><option ng-repeat="state in vm.states">{{state.name}}</option></select>'
+  };
+});
+
+
+    
 
 
 
