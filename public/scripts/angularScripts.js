@@ -10,7 +10,7 @@ app.controller("AppController", function ($window, $scope) {
     vm.carsFactor = 0.210526;
     vm.coalFactor = 0.000000263;    
     
-    vm.sidebarOpen=true;      
+    vm.sidebarOpen=($window.innerWidth>900);      
     
     vm.loadStateData = function () {
         $.getJSON('data/stateData.json')

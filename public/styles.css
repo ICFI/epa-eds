@@ -196,12 +196,10 @@ p {
 }
 
 #sidebarEPALogo {
-    position:absolute;
-    bottom:1em;
-    left:0;
-    right:30px;
     margin:auto;
+    margin-top:2em;
     width: 65%;
+    display:block;
 }
 
 select {
