@@ -504,5 +504,9 @@ select {
         background-image:none !important;       
     }
     
+    #seeYourStatesCommitment select {
+        width:100% !important;
+    }
+    
 }
 
