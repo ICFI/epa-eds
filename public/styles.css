@@ -468,6 +468,25 @@ select {
 
 }
 
+
+@media only screen and (max-width: 650px) {
+    
+    #seeYourStatesCommitment {
+        padding:1em !important;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    
+    #donutChart {width:100% !important;}
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .takingActionPageBox { padding-right: 0px !important; 
+    padding-bottom: 110px !important;}
+}
+
 @media only screen and (max-width: 400px) {
     
     .ultrafat { font-size:48px !important; }
