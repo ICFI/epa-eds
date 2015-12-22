@@ -40,12 +40,9 @@ p {
 .page {
     padding-left:2em;
     padding-right:2em;   
-    padding-bottom:2em
-    /*position:fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;*/
+    padding-bottom:2em;
+    max-width:1180px;
+    margin:auto;
 }
 
 #pages {
@@ -80,6 +77,10 @@ p {
     clear:both;
 }
 
+.translucent {
+    opacity:0.6;
+}
+
 .separator {
     margin-bottom:2em;
     clear: both;
@@ -101,7 +102,7 @@ p {
 }
 
 .ultrafat {    
-    font-size: 72px;
+    font-size: 84px;
     font-weight: 800;
     margin-top:0;
     margin-bottom:0;
@@ -115,6 +116,10 @@ p {
     font-size:22px;
 }
 
+.small {
+    font-size:18px;
+}
+
 .thin {
     font-weight:100;
 }
@@ -124,7 +129,6 @@ p {
 }
 
 .sources {
-    padding-top:1em;
     padding-bottom:1em;
     border-top:1px solid #E4E4E4;
     font-weight:bold;
@@ -135,15 +139,14 @@ p {
     font-size:32px !important;
 }
 
-
-
-
 #header {
     border-bottom:1px solid #E4E4E4;    
     padding: 1em;
     margin-left: 2em;
     margin-bottom: 2em;
     margin-right: 2em;
+    max-width:1100px;
+    margin:auto;
 }
 
 #sidebar {
@@ -175,14 +178,14 @@ p {
 
 #sidebarHandleButton {
     background:#F1CD3D;
-    height:30px;
+    height:90px;
     margin-top:30px;
     cursor:pointer;
-    background:url('images/sidebar/menu-closed-block.png');    
+    background-image:url('images/sidebar/menu-closed-block.png');    
 }
 
 #sidebar.open #sidebarHandleButton {
-    background:url('images/sidebar/menu-opened-block.png');   
+    background-image:url('images/sidebar/menu-opened-block.png');   
 }
 
 #sidebarEPALogo {
@@ -196,6 +199,10 @@ p {
 select {
     padding: 0.8em 0.5em;
     width: 245px;
+}
+
+#whatIsYourPowerPlan select {
+    width:100%;
 }
 
 #statePower select {
@@ -246,34 +253,29 @@ select {
 
 .takingActionPageBox h4 {
     margin-top:0;
+    margin-bottom:0;
 }
 
 #powerPageBox {
-    background:url(images/home/epp-box-corner.png);
+    background-image:url(images/home/epp-box-corner.png);
 }
 
 #trucksPageBox {
-    background:url(images/home/trucks-box-corner.png);
+    background-image:url(images/home/trucks-box-corner.png);
 }
 
 #oilPageBox {
-    background:url(images/home/oil-gas-box-corner.png);
+    background-image:url(images/home/oil-gas-box-corner.png);
 }
 
 #otherPageBox {
-    background:url(images/home/other-box-corner.png);
+    background-image:url(images/home/other-box-corner.png);
 }
 
 #commercialPageBox {
-    background:url(images/home/commercial-box-corner.png);
+    background-image:url(images/home/commercial-box-corner.png);
 }
 
-#seeYourStatesCommitment {
-    background:#F8F8F8;
-    border: 1px solid #F1F1F1;
-    padding:1em;
-    box-sizing: border-box;
-}
 
 
 .paneButton {
@@ -294,7 +296,7 @@ select {
 }
 
 .paneButton:hover{
-    background:#F4F7FF;
+    background:#FFF;
 }
 
 .paneButton.unselectable:hover{
@@ -333,9 +335,12 @@ select {
 
 #seeYourStatesCommitment {
     text-align:right;
-    background:url(images/power/green-trees.png) no-repeat left bottom;
+    background-image:url(images/power/green-trees.png);
+    background-position: 2em bottom;
+    background-repeat: no-repeat;
     background-size:auto 95%;
     padding-left:45%;
+    padding-right:2em;
     overflow:hidden;
 }
 
@@ -343,6 +348,7 @@ select {
     float:right;
     height:200px;
     margin-left:1em;
+    margin-right:-2em;
     margin-bottom:1em;
 }
 
@@ -355,4 +361,21 @@ select {
     height:100%;
     margin-right: 10%;
     float: left;
+}
+
+#powerPage h2 {
+    line-height:1em;
+}
+
+.row { display:flex; }
+
+.row div { flex:1; }
+
+@media only screen and (max-device-width: 1050px) {
+    
+    .row { display:block !important; }
+    .takingActionPageBox { margin-right:0 !important; width:auto !important; float:none !important; }
+    
+    
+
 }

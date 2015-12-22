@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700,800|Neuton:400,400italic,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
 
 </head>
 
@@ -13,17 +34,17 @@
      <div id="sidebar" ng-class="{open:vm.sidebarOpen}">
          <div id="mainSidebarContent">
 
-            <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+            <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
                 <option value="">Select State</option>
             </select>
 
 
             <div>
-                <div class="paneButton" ng-class="{selected:vm.selectedPage=='takingAction'}" ng-click="vm.selectedState=null; vm.selectedPage='takingAction'">Taking Action</div>
-                <div class="paneButton" ng-class="{selected:vm.selectedPage=='powerProducers'}" ng-click="vm.selectedState=null; vm.selectedPage='powerProducers'">Electric Power Producers</div>
-                <div class="paneButton unselectable">Trucks</div>
+                <div class="paneButton" ng-class="{selected:vm.selectedPage=='takingAction'}" ng-click="vm.selectedState=null; vm.selectedPage='takingAction'">U.S. Climate Action</div>
+                <div class="paneButton" ng-class="{selected:vm.selectedPage=='powerProducers'}" ng-click="vm.selectedState=null; vm.selectedPage='powerProducers'">Power Plants</div>
+                <div class="paneButton unselectable">Transportation</div>
                 <div class="paneButton unselectable">Landfills and Producers of Oil and Gas</div>
-                <div class="paneButton unselectable">Other Industries</div>
+                <div class="paneButton unselectable">Industries Releasing Potent Greenhouse Gases</div>
                 <div class="paneButton unselectable">Commercial Buildings and Homes</div>
             </div>  
 
@@ -48,9 +69,9 @@
                 <div id="whatIsYourPowerPlan">
 
                     <img src="images/home/hand-with-plant.png"/>
-                    <h4>What is the Clean Power Plan for Your State?</h4>
-                    
-                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                    <h4>What is your state's goal under the Clean Power Plan?</h4>
+           
+                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
                         <option value="">Select State</option>
                     </select>
                     
@@ -58,15 +79,15 @@
 
                 <div id="titleDiv">
 
-                    <h1 class="green">Climate Commitment</h1>
+                    <h1 class="green">Climate Action</h1>
 
-                    <h2>Taking Action on Climate Change</h2>
+                    <h2>COP21 Lights the Path</h2>
 
-                    <p>At COP21, also known as the 2015 Paris Climate Conference, [xx] nations made a legally binding commitment to reduce greenhouse gas with the goal of keeping global warming below 2&deg;C.</p>
+                    <p>At COP21, also known as the 2015 Paris Climate Conference, 195 nations and the European Union signed on to reduce greenhouse gas emissions with the goal of keeping global warming below 2&deg;C.</p>
 
-                    <h3>How the U.S. Can Produce Less Greenhouse Gas</h3>
+                    <h3>What the U.S. is doing</h3>
 
-                    <p>To meet our commitments, the U.S. is making plans to cut greenhouse gas produced by the five biggest sources. </p>
+                    <p>The U.S. is planning to cut greenhouse gas emissions from major sources.<sup>2</sup> <a href="https://www.youtube.com/watch?v=RRLOrjuegPU" target="_blank">Hear about the Historic Paris Agreement from EPA Administrator Gina McCarthy.</a></p>
 
                 </div>
 
@@ -74,118 +95,153 @@
 
             <div class="separator"></div>
 
-            <div>
+            <div class="row">
                 <div id="powerPageBox" class="takingActionPageBox greyBox" ng-click="vm.selectedState=null; vm.selectedPage='powerProducers'">             
-                    <h4>1. Electric Power Producers</h4>
-                    <p>Utilities are the biggest producers of greenhoues gases in the United States. See how the U.S. Clean Power Plan will cut greenhouse gas from power plants in your state.</p>  
+                    <h4>Power Producers</h4>
+                    <p>Under the Clean Air Act, EPA's Clean Power Plan cuts carbon pollution from new and existing power plants. Each state has a goal under this regulation. See your state's goal.</p>  
                 </div>
 
-                <div id="trucksPageBox" class="takingActionPageBox greyBox">             
-                    <h4>2. Trucks</h4>
-                    <p>Lorem Ipsum</p>        
-                </div>
-
-                <div id="oilPageBox" class="takingActionPageBox greyBox">             
-                    <h4>3. Landfills and Producers of Oil &amp; Gas</h4>
-                    <p>Lorem Ipsum</p>        
-                </div>
-
-                <div id="otherPageBox" class="takingActionPageBox greyBox">             
-                    <h4>4. Other Industries</h4>
-                    <p>Lorem Ipsum</p>        
-                </div>
-
-                <div id="commercialPageBox" class="takingActionPageBox greyBox">             
-                    <h4>5. Commercial Buildings and Homes</h4>
-                    <p>Lorem Ipsum</p>        
+                <div id="trucksPageBox" class="takingActionPageBox greyBox translucent">             
+                    <h4>Transportation</h4>
+                    <p>Under the Clean Air Act, the Department of Transportation and EPA are making light-duty and heavy-duty vehicles more fuel efficient.</p>        
                 </div>
             </div>
+            
+            <div class="row">            
+
+                <div id="oilPageBox" class="takingActionPageBox greyBox translucent">             
+                    <h4>Landfills and Producers of Oil &amp; Gas</h4>
+                    <p>Under the Clean Air Act, EPA is developing standards to address methane emissions from landfills and the oil and gas sector.</p>        
+                </div>
+
+                <div id="otherPageBox" class="takingActionPageBox greyBox translucent">             
+                    <h4>Industries Releasing Potent Greenhouse Gases</h4>
+                    <p>Under the Clean Air Act, EPA is moving to reduce the use and emissions of very potent greenhouse gases, HFCs, that are often used as refrigerants and in other industrial applications. </p>        
+                </div>
+                
+            </div>
+
+                <div id="commercialPageBox" class="takingActionPageBox greyBox translucent">             
+                    <h4>Commercial Buildings and Homes</h4>
+                    <p>Under the Energy Policy Act and the Energy Independence and Security Act, the U.S. Department of Energy is setting standards to make buildings more energy efficient.</p>        
+                </div>
    
             <div class="separator"></div>
             
             <div class="sources">
             
-                <p>1. Any gas that contributes to the greenhouse effect by absorbing infrared radiation, e.g. carbon dioxide and chlorofluorocarbons.</p>
+                <p><sup>1</sup> The release of any gas that contributes to the greenhouse effect by absorbing infrared radiation, e.g., carbon dioxide and methane.<br/>
+                <sup>2</sup> Based on the <a href="http://www4.unfccc.int/submissions/INDC/Published%20Documents/United%20States%20of%20America/1/U.S.%20Cover%20Note%20INDC%20and%20Accompanying%20Information.pdf" target="_blank">U.S. Intended Nationally Determined Contributions</a> submitted to the United Nations Framework Convention on Climate Change (UNFCCC).</p>
                 
             </div>
             
         </div>
 
-        <div class="page" id="producersPage" ng-hide="vm.selectedPage!='powerProducers'">
+        <div class="page" id="powerPage" ng-hide="vm.selectedPage!='powerProducers'">
 
             <div ng-hide="vm.selectedState!=null">
             
-                <h2 class="big black">Electric Power Producers</h2>
+                <h2 class="big black">Power Plants</h2>
                 
-                <img id="bluePlug" src="images/power/blue-plug.png"/><p>In the U.S., power plants are the single biggest source of greenhouse gas. The U.S. Government is working with utilities to reduce the greenhouse gases released by power plants in every state.</p>
+                <img id="bluePlug" src="images/power/blue-plug.png"/><p>In the U.S., power plants are the single biggest source of greenhouse gas emissions. The U.S. is working with utilities to reduce greenhouse gases released by power plants in every state.</p>
+                <img id="donutChart" src="images/power/donut-chart.png"/>
                 
-                
-                <h2 class="big green">Clean Power Plan for Your State</h2>
-                <p>The Clean Power Plan will help the U.S. meet our commitment to reduce greenhouse gas. Every state has a goal to cut pollution from power plants.</p>
+                <h2 class="big green">What is your state's goal under the Clean Power Plan?</h2>
+                <p>The Clean Power Plan is a regulation that will help the U.S. reduce greenhouse gas emissions from power plants. Individual states have their own goals.</p>
                 
                 <div id="seeYourStatesCommitment" class="greyBox">
-                    <h3 class="big">See Your State's Commitments</h3>
-                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                    <h3 class="big">See the Goal for Your State</h3>
+                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
                         <option value="">Select State</option>
                     </select>
                 </div>
-            
-            
+                
+                <div class="separator"></div>
+                
+                <div class="sources">
+
+                    <p><sup>3</sup> All emission estimates from the <em>Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2013</em></p>
+
+                </div>
             </div>
             
             <div id="statePower" ng-hide="vm.selectedState==null">            
             
-                <h2 class="big green">The Clean Power Plan for Your State</h1>
-                <p>The Clean Power Plan will help the U.S. meet our commitment to reduce greenhouse gas. Every state has a goal to cut pollutions from power plants.</p>
+                <h2 class="big green">Your State Goal Under the Clean Power Plan</h1>
+                <p>The Clean Power Plan is a regulation that will help the U.S. reduce greenhouse gas emissions from power plants. Individual states have their own goals.</p>
                 
-                <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
                         <option value="">Select State</option>
                 </select>
                 
-                <h3 class="big thin black">{{vm.selectedState.name}}</h3>
+                <div id="stateWithData" ng-hide="vm.selectedState.state_group.ghg_goals.goals_2030==false">
                 
-                <div id="by2030" class="greyBox">
-                    
-                    <img src="images/power/big-powerplant-icon.png"/>
-                    <p class="medium no-bottom-margin">By 2030, {{vm.selectedState.name}}'s goal is to reduce greenhouse gas coming from power plants by</p>
-                    
-                    <p class="green ultrafat">{{(1-vm.selectedState.ghg_goals.goals_2030 / vm.selectedState.ghg_emissions.emissions_2012) * 100 | number:0}}%</p>
+                    <h3 class="big thin black">{{vm.selectedState.state_group.name}}</h3>
+
+                    <div id="by2030" class="greyBox">
+
+                        <img src="images/power/big-powerplant-icon.png"/>
+                        <p class="medium no-bottom-margin">By 2030, reduce greenhouse gases coming from power plants by</p>
+
+                        <p class="green ultrafat">{{100*(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)/vm.selectedState.state_group.ghg_emissions.emissions_2012 | number:1}}%<sup class="small black">4</sup></p>
+                    </div>
+
+                    <p class="medium">Based on the amount of greenhouse gases released in 2012, <strong>the 2030 goal would be like removing:</strong></p>
+
+                    <div class="row">
+
+                        <div class="equivalencyBox greyBox">
+
+                            <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.gallonsFactor | number:0}}</p>
+                            <p>gallons of gasoline consumed</p>
+                            <img src="images/power/gas-pump-icon.png"/>
+
+                        </div>
+
+                        <div class="equivalencyBox greyBox">
+
+                            <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.carsFactor | number:0}}</p>
+                            <p>passenger vehicles driven for one year</p>
+
+                            <img src="images/power/vehicle-icon.png"/>
+
+                        </div>
+
+                        <div class="equivalencyBox greyBox">
+
+                            <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.coalFactor | number:1}}</p>
+                            <p>coal-fired power plants in one year</p>
+
+                            <img src="images/power/coal-plant-icon.png"/>
+
+                        </div>               
+
+
+                    </div>
+
                 </div>
                 
-                <p class="medium">Based on the amount of greenhouse gas that {{vm.selectedState.name}} released in 2012, <strong>the 2030 goal would be like removing:</strong></p>
+                <div id="stateWithoutData" ng-show="vm.selectedState.state_group.ghg_goals.goals_2030==false">
                 
-                <div>
-                
-                    <div class="equivalencyBox greyBox">
                     
-                        <p class="green equivalencyAmount">{{(vm.selectedState.ghg_emissions.emissions_2012-vm.selectedState.ghg_goals.goals_2030)*vm.gallonsFactor | number:0}}</p>
-                        <p>gallons of gasoline consumed</p>
-                        <img src="images/power/gas-pump-icon.png"/>
+                    <h3 class="big thin black">{{vm.selectedState.state_group.name}}</h3>
                     
-                    </div>
+                    <p>EPA is not setting CO<sup>2</sup> emission performance goals for Alaska, Hawaii, Guam or Puerto Rico in the Clean Power Plan at this time.</p>
                     
-                    <div class="equivalencyBox greyBox">
-                    
-                        <p class="equivalencyAmount">{{(vm.selectedState.ghg_emissions.emissions_2012-vm.selectedState.ghg_goals.goals_2030)*vm.carsFactor | number:0}}</p>
-                        <p>passenger vehicles driven for one year</p>
-                        
-                        <img src="images/power/vehicle-icon.png"/>
-                    
-                    </div>
-                    
-                    <div class="equivalencyBox greyBox">
-                    
-                        <p class="equivalencyAmount">{{(vm.selectedState.ghg_emissions.emissions_2012-vm.selectedState.ghg_goals.goals_2030)*vm.coalFactor | number:2}}</p>
-                        <p>coal-fired power plants in one year</p>
-                        
-                        <img src="images/power/coal-plant-icon.png"/>
-                    
-                    </div>               
-                
-                
                 </div>
                 
-                <div class="clear"></div>
+                <div class="separator"></div>
+                
+                <div class="sources">
+
+                    <p><sup>4</sup> Data sources:<br/>
+                        <ul>
+                            <li>EPA FLIGHT <a href="http://ghgdata.epa.gov/ghgp/main.do" target="_blank">2011-2014 Greenhouse Gas Emissions from Large Facilities</a></li>
+                            <li>Clean Power Plan Final Rule Technical Documents <a href="http://www.epa.gov/sites/production/files/2015-11/tsd-cpp-emission-performance-rate-goal-computation-appendix-1-5.xlsx" target="_blank">Data File: Goal Computation Appendix 1-5 (XLSX)</a></li>
+                        </ul>
+                    </p>
+
+                </div>
 
             </div>
 
