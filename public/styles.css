@@ -49,7 +49,9 @@ p {
 #pages {
     margin-left:30px;
     transition:all 0.2s ease;
+    overflow:hidden;
 }
+
 #pages.sidebaroffset {
     margin-left:300px;
 }
@@ -204,14 +206,40 @@ p {
 
 select {
     padding: 0.5em 0.3em;
+    height:47px;
     font-size: 1.2em;
     width: 245px;
+    cursor:pointer;
+    border-color:#CFCFCF;
+}
+
+.selectWrapper {
+    position:relative;
+}
+.selectWrapper:before {
+    pointer-events: none;
+    position: absolute;
+    content: url(images/cpp-dropdown-box-arrow.png);
+    right: 0;
 }
 
 #whatIsYourPowerPlan select {
     width:100%;
 }
 
+#whatIsYourPowerPlan img {
+    margin-top:2em;
+    margin-right:-2em;   
+    float:right;
+    margin-bottom: 2em;
+}
+        
+ 
+#whatIsYourPowerPlan h4 {
+    clear:both;
+}
+           
+        
 #statePower select {
     float:right;
 }
@@ -220,11 +248,12 @@ select {
     margin-top:0;
 }
 
-#sidebar select {
+#sidebar .selectWrapper {
     display: block;
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 1em;
+    width: 245px;
 }
 
 #titleDiv {
@@ -408,15 +437,7 @@ select {
     
     #titleDiv { -webkit-box-ordinal-group: 1; -moz-box-ordinal-group: 1; box-ordinal-group: 1;}
     
-    #whatIsYourPowerPlan img {
-        float:right;
-        margin-bottom: 2em;
-    }
-    
-    #whatIsYourPowerPlan h4 {
-        clear:both;
-    }
-    
+  
     #by2030 {
         background-image:none !important; padding-left:1em !important; text-align:center !important; 
     }

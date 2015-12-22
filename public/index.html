@@ -34,10 +34,11 @@
      <div id="sidebar" ng-class="{open:vm.sidebarOpen}">
          <div id="mainSidebarContent">
 
-            <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
-                <option value="">Select State</option>
-            </select>
-
+            <div class="selectWrapper">
+                <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                    <option value="">Select State</option>
+                </select>
+            </div>
 
             <div>
                 <div class="paneButton" ng-class="{selected:vm.selectedPage=='takingAction'}" ng-click="vm.selectedState=null; vm.selectedPage='takingAction'">U.S. Climate Action</div>
@@ -48,7 +49,7 @@
                 <div class="paneButton unselectable">Commercial Buildings and Homes</div>
             </div>  
 
-             <img id="sidebarEPALogo" src='images/sidebar/epa-seal.png'/> 
+             <img id="sidebarEPALogo" alt="The Official EPA Seal" src='images/sidebar/epa-seal.png'/> 
          </div>
          
          <div id="sidebarHandle">
@@ -59,7 +60,7 @@
  
     <div id="pages" ng-class="{sidebaroffset: vm.sidebarOpen}">        
         
-        <div id="header"><img id="headerLogo" src="images/top-epa-logo.png"/></div>
+        <div id="header"><img id="headerLogo" alt="the Official EPA Logo" src="images/top-epa-logo.png"/></div>
         
         <div class="page" id="takingActionPage" ng-hide="vm.selectedPage!='takingAction'">
 
@@ -68,12 +69,14 @@
 
                 <div id="whatIsYourPowerPlan">
 
-                    <img src="images/home/hand-with-plant.png"/>
+                    <img alt="Image of a Hand Holding a Plant" src="images/home/hand-with-plant.png"/>
                     <h4>What is your state's goal under the Clean Power Plan?</h4>
            
-                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
-                        <option value="">Select State</option>
-                    </select>
+                    <div class="selectWrapper">
+                        <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
                     
                 </div>
 
@@ -143,17 +146,19 @@
             
                 <h2 class="big black">Power Plants</h2>
                 
-                <img id="bluePlug" src="images/power/blue-plug.png"/><p>In the U.S., power plants are the single biggest source of greenhouse gas emissions. The U.S. is working with utilities to reduce greenhouse gases released by power plants in every state.</p>
-                <img id="donutChart" src="images/power/donut-chart.png"/>
+                <img id="bluePlug" alt="Image of an Electrical Cord" src="images/power/blue-plug.png"/><p>In the U.S., power plants are the single biggest source of greenhouse gas emissions. The U.S. is working with utilities to reduce greenhouse gases released by power plants in every state.</p>
+                <img id="donutChart" alt="Chart showing that 31% of all greenhouse gases released by the U.S. come from the generation, transmission, and distribution of electricity. Source: The Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2013" src="images/power/donut-chart.png"/>
                 
                 <h2 class="big green">What is your state's goal under the Clean Power Plan?</h2>
                 <p>The Clean Power Plan is a regulation that will help the U.S. reduce greenhouse gas emissions from power plants. Individual states have their own goals.</p>
                 
                 <div id="seeYourStatesCommitment" class="greyBox">
                     <h3 class="big">See the Goal for Your State</h3>
-                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
-                        <option value="">Select State</option>
-                    </select>
+                    <div class="selectWrapper">
+                        <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
                 </div>
                 
                 <div class="separator"></div>
@@ -166,9 +171,11 @@
                 <h2 class="big green">Your State Goal Under the Clean Power Plan</h1>
                 <p>The Clean Power Plan is a regulation that will help the U.S. reduce greenhouse gas emissions from power plants. Individual states have their own goals.</p>
                 
-                <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
+                <div class="selectWrapper">
+                    <select class="stateSelect" ng-model="vm.selectedState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'">
                         <option value="">Select State</option>
-                </select>
+                    </select>
+                </div>
                 
                 <div id="stateWithData" ng-hide="vm.selectedState.state_group.ghg_goals.goals_2030==false">
                 
@@ -176,7 +183,7 @@
 
                     <div id="by2030" class="greyBox">
 
-                        <img src="images/power/big-powerplant-icon.png"/>
+                        <img src="images/power/big-powerplant-icon.png" alt="Image of a Power Plant"/>
                         <p class="medium no-bottom-margin">By 2030, reduce greenhouse gases coming from power plants by</p>
 
                         <p class="green ultrafat">{{100*(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)/vm.selectedState.state_group.ghg_emissions.emissions_2012 | number:1}}%<sup class="small black">4</sup></p>
@@ -188,9 +195,9 @@
 
                         <div class="equivalencyBox greyBox">
 
-                            <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.gallonsFactor | number:0}}</p>
+                            <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.gallonsFactor | number:0 | writeOutBillions}}</p>
                             <p>gallons of gasoline consumed</p>
-                            <img src="images/power/gas-pump-icon.png"/>
+                            <img alt="Image of a Gas Pump" src="images/power/gas-pump-icon.png"/>
 
                         </div>
 
@@ -199,7 +206,7 @@
                             <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.carsFactor | number:0}}</p>
                             <p>passenger vehicles driven for one year</p>
 
-                            <img src="images/power/vehicle-icon.png"/>
+                            <img alt="Image of a Passenger Vehicle" src="images/power/vehicle-icon.png"/>
 
                         </div>
 
@@ -208,7 +215,7 @@
                             <p class="green equivalencyAmount">{{(vm.selectedState.state_group.ghg_emissions.emissions_2012-vm.selectedState.state_group.ghg_goals.goals_2030)*vm.coalFactor | number:1}}</p>
                             <p>coal-fired power plants in one year</p>
 
-                            <img src="images/power/coal-plant-icon.png"/>
+                            <img alt="Image of a Coal Plant" src="images/power/coal-plant-icon.png"/>
 
                         </div>               
 
