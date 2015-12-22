@@ -35,6 +35,7 @@ h4 {
 
 p {
     line-height:1.5em;
+    font-size:22px;
 }
 
 .page {
@@ -134,6 +135,10 @@ p {
     font-weight:bold;
 }
 
+.sources p {
+    font-size:16px;
+}
+
 .equivalencyAmount {
     font-weight:800;
     font-size:32px !important;
@@ -141,11 +146,11 @@ p {
 
 #header {
     border-bottom:1px solid #E4E4E4;    
-    padding: 1em;
+    padding: 2em;
     margin-left: 2em;
     margin-bottom: 2em;
     margin-right: 2em;
-    max-width:1100px;
+    max-width:1180px;
     margin:auto;
 }
 
@@ -194,10 +199,12 @@ p {
     left:0;
     right:30px;
     margin:auto;
+    width: 65%;
 }
 
 select {
-    padding: 0.8em 0.5em;
+    padding: 0.5em 0.3em;
+    font-size: 1.2em;
     width: 245px;
 }
 
@@ -260,6 +267,18 @@ select {
     background-image:url(images/home/epp-box-corner.png);
 }
 
+#powerPageBox h4 {
+    color:#014574;
+}
+
+#powerPageBox:hover h2 {
+    color:#022f4e;
+}
+
+#powerPageBox:hover {
+    border-color:#bdc3c7;
+}
+
 #trucksPageBox {
     background-image:url(images/home/trucks-box-corner.png);
 }
@@ -283,12 +302,12 @@ select {
     border-bottom: 1px solid #D4D4D4;
     cursor:pointer;
     font-weight:bold;
-    color:#595959;
+    color:#2C6187;
 }
 
 .paneButton.selected {
     background:#DDDDDD;
-    color:#2C6187;
+    color:#595959;
 }
 
 .paneButton.unselectable {
@@ -353,14 +372,15 @@ select {
 }
 
 #by2030 {
-    height:250px;
-    min-height:250px; 
+    background-image:url(images/power/big-powerplant-icon.png);
+    background-position: 2em 1em;
+    background-repeat: no-repeat;
+    background-size:auto 90%;
+    padding-left:45%;
 }
 
-#by2030 img {
-    height:100%;
-    margin-right: 10%;
-    float: left;
+#by2030 > img {
+    display:none;
 }
 
 #powerPage h2 {
@@ -371,11 +391,41 @@ select {
 
 .row div { flex:1; }
 
-@media only screen and (max-device-width: 1050px) {
+@media only screen and (max-width: 1100px) {
     
     .row { display:block !important; }
     .takingActionPageBox { margin-right:0 !important; width:auto !important; float:none !important; }
+    .equivalencyBox { margin-right:0 !important; width:auto !important; float:none !important; margin-bottom:1em !important;}
     
+    #homeTopColumns { display: -webkit-box; display: -moz-box;     display: box; -webkit-box-orient: vertical; -moz-box-orient:vertical; box-orient: vertical; }
     
+    #homeTopColumns > div {
+        float:none !important; width:auto !important; margin-right:0 !important; margin-left:0 !important;
+    }
+    
+    #whatIsYourPowerPlan { -webkit-box-ordinal-group: 2; -moz-box-ordinal-group: 2; box-ordinal-group: 2; border-left:0 !important; 
+    border-top:1px solid #F1F1F1; padding-left:0 !important; padding-top:1em !important;}
+    
+    #titleDiv { -webkit-box-ordinal-group: 1; -moz-box-ordinal-group: 1; box-ordinal-group: 1;}
+    
+    #whatIsYourPowerPlan img {
+        float:right;
+        margin-bottom: 2em;
+    }
+    
+    #whatIsYourPowerPlan h4 {
+        clear:both;
+    }
+    
+    #by2030 {
+        background-image:none !important; padding-left:1em !important; text-align:center !important; 
+    }
+    #by2030 > img  {
+        display:block !important; margin:auto !important;
+    }
+    
+    #statePower .row {
+        text-align:center !important;
+    }
 
 }

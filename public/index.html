@@ -64,7 +64,7 @@
         <div class="page" id="takingActionPage" ng-hide="vm.selectedPage!='takingAction'">
 
 
-            <div>
+            <div id="homeTopColumns">
 
                 <div id="whatIsYourPowerPlan">
 
@@ -83,7 +83,7 @@
 
                     <h2>COP21 Lights the Path</h2>
 
-                    <p>At COP21, also known as the 2015 Paris Climate Conference, 195 nations and the European Union signed on to reduce greenhouse gas emissions with the goal of keeping global warming below 2&deg;C.</p>
+                    <p>At COP21, also known as the 2015 Paris Climate Conference, 195 nations and the European Union signed on to reduce greenhouse gas emissions<sup>1</sup> with the goal of keeping global warming below 2&deg;C.</p>
 
                     <h3>What the U.S. is doing</h3>
 
@@ -97,7 +97,7 @@
 
             <div class="row">
                 <div id="powerPageBox" class="takingActionPageBox greyBox" ng-click="vm.selectedState=null; vm.selectedPage='powerProducers'">             
-                    <h4>Power Producers</h4>
+                    <h4>Power Plants</h4>
                     <p>Under the Clean Air Act, EPA's Clean Power Plan cuts carbon pollution from new and existing power plants. Each state has a goal under this regulation. See your state's goal.</p>  
                 </div>
 
@@ -158,11 +158,7 @@
                 
                 <div class="separator"></div>
                 
-                <div class="sources">
-
-                    <p><sup>3</sup> All emission estimates from the <em>Inventory of U.S. Greenhouse Gas Emissions and Sinks: 1990-2013</em></p>
-
-                </div>
+              
             </div>
             
             <div id="statePower" ng-hide="vm.selectedState==null">            
@@ -218,19 +214,8 @@
 
 
                     </div>
-
-                </div>
-                
-                <div id="stateWithoutData" ng-show="vm.selectedState.state_group.ghg_goals.goals_2030==false">
-                
                     
-                    <h3 class="big thin black">{{vm.selectedState.state_group.name}}</h3>
-                    
-                    <p>EPA is not setting CO<sup>2</sup> emission performance goals for Alaska, Hawaii, Guam or Puerto Rico in the Clean Power Plan at this time.</p>
-                    
-                </div>
-                
-                <div class="separator"></div>
+                     <div class="separator"></div>
                 
                 <div class="sources">
 
@@ -243,6 +228,31 @@
 
                 </div>
 
+
+                </div>
+                
+                <div id="stateWithoutData" ng-show="vm.selectedState.state_group.ghg_goals.goals_2030==false">
+                    
+                    <div id="stateWithoutPowerPlants" ng-show="vm.selectedState.state_group.acronym=='AK' || vm.selectedState.state_group.acronym=='HI' || vm.selectedState.state_group.acronym=='PR' || vm.selectedState.state_group.acronym=='GU'">
+
+
+                        <h3 class="big thin black">{{vm.selectedState.state_group.name}}</h3>
+
+                        <p>EPA is not setting CO<sup>2</sup> emission performance goals for Alaska, Hawaii, Guam or Puerto Rico in the Clean Power Plan at this time.</p>
+
+                    </div>
+
+                    <div id="stateWithoutGoals" ng-show="vm.selectedState.state_group.acronym=='VI' || vm.selectedState.state_group.acronym=='VT' || vm.selectedState.state_group.acronym=='DC'">
+
+
+                        <h3 class="big thin black">{{vm.selectedState.state_group.name}}</h3>
+
+                        <p>Your state does not have any power plants that would be impacted by the Clean Power Plan.</p>
+
+                    </div>
+
+                </div>
+            
             </div>
 
         </div>
