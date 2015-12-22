@@ -413,6 +413,10 @@ select {
     line-height:1em;
 }
 
+label {
+    display:none;
+}
+
 .row { display:flex; }
 
 .row div { flex:1; }
@@ -439,7 +443,8 @@ select {
         background-image:none !important; padding-left:1em !important; text-align:center !important; 
     }
     #by2030 > img  {
-        display:block !important; margin:auto !important;
+        display:block !important; margin:auto !important; 
+    max-width: 100%!important;
     }
     
     #statePower .row {
@@ -447,3 +452,10 @@ select {
     }
 
 }
+
+
+@media only screen and (max-width: 400px) {
+    
+    .ultrafat { font-size:48px !important; }
+}
+

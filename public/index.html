@@ -35,7 +35,7 @@
          <div id="mainSidebarContent">
 
             <div class="selectWrapper">
-                <select class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
+                <label for=“sideBarStateSelect”>Select State</label><select id="sideBarStateSelect" class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
                     <option value="">Select State</option>
                 </select>
             </div>
@@ -73,7 +73,7 @@
                     <h4>What is your state's goal under the Clean Power Plan?</h4>
            
                     <div class="selectWrapper">
-                        <select class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
+                        <label for=“homePageStateSelect”>Select State</label><select id="homePageStateSelect" class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -155,7 +155,7 @@
                 <div id="seeYourStatesCommitment" class="greyBox">
                     <h3 class="big">See the Goal for Your State</h3>
                     <div class="selectWrapper">
-                        <select class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
+                         <label for=“powerStateSelect”>Select State</label><select id="powerStateSelect" class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
                             <option value="">Select State</option>
                         </select>
                     </div>
@@ -172,8 +172,8 @@
                 <p>The Clean Power Plan is a regulation that will help the U.S. reduce greenhouse gas emissions from power plants. Individual states have their own goals.</p>
                 
                 <div class="selectWrapper">
-                    <select class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
-                        <option value="">Select State</option>
+                    <label for=“anotherStateSelect”>Select State</label><select id="anotherStateSelect" class="stateSelect" ng-model="vm.possibleState" ng-options="state.state_group.name for state in vm.states" ng-change="vm.selectedPage='powerProducers'; vm.selectedState=vm.possibleState; vm.possibleState=null;">
+                        <option value="">Select Another State</option>
                     </select>
                 </div>
                 

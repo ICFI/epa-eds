@@ -25,6 +25,12 @@ app.controller("AppController", function ($window, $scope) {
     vm.selectedState=null;    
     vm.selectedPage="takingAction";    
     vm.loadStateData();
+    
+    
+        $scope.$watchGroup(['vm.selectedPage', 'vm.selectedState'], function(newValues, oldValues, scope) {
+               $('body').scrollTop(0);
+});
+   
 
 });
 
