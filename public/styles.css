@@ -468,8 +468,41 @@ select {
 
 }
 
+
+@media only screen and (max-width: 650px) {
+    
+    #seeYourStatesCommitment {
+        padding:1em !important;
+        background-size: auto 55% !important;
+        
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    
+    #donutChart {width:100% !important;}
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .takingActionPageBox { padding-right: 0px !important; 
+    padding-bottom: 110px !important;}
+    
+    
+    #seeYourStatesCommitment {
+        background-size: auto 35% !important;
+        background-position: 0.5em bottom !important;        
+    }
+
+}
+
 @media only screen and (max-width: 400px) {
     
     .ultrafat { font-size:48px !important; }
+    
+    #seeYourStatesCommitment {
+        background-image:none !important;       
+    }
+    
 }
 
