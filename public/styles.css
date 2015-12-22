@@ -1,3 +1,5 @@
+/* Basic element styling */
+
 html, body {
     height:100%;
 }
@@ -38,12 +40,40 @@ p {
     font-size:22px;
 }
 
+label {
+    display:none;
+}
+
+.row { display:flex; }
+
+.row div { flex:1; }
+
 .page {
     padding-left:2em;
     padding-right:2em;   
     padding-bottom:2em;
     max-width:1180px;
     margin:auto;
+}
+
+
+select {
+    padding: 0.5em 0.3em;
+    height:47px;
+    font-size: 1.2em;
+    width: 245px;
+    cursor:pointer;
+    border-color:#CFCFCF;
+}
+
+.selectWrapper {
+    position:relative;
+}
+.selectWrapper:before {
+    pointer-events: none;
+    position: absolute;
+    content: url(images/cpp-dropdown-box-arrow.png);
+    right: 0;
 }
 
 #pages {
@@ -72,6 +102,16 @@ p {
     background:#4F5FDA;
 }
 
+
+/* BASIC CLASS HELPERS */
+
+.greyBox {
+    background-color:#F8F8F8;
+    border: 1px solid #F1F1F1;
+    padding:1em;
+    box-sizing: border-box;
+}
+
 .center {
     text-align:center;
 }
@@ -87,13 +127,6 @@ p {
 .separator {
     margin-bottom:2em;
     clear: both;
-}
-
-.greyBox {
-    background-color:#F8F8F8;
-    border: 1px solid #F1F1F1;
-    padding:1em;
-    box-sizing: border-box;
 }
 
 .green {
@@ -202,24 +235,18 @@ p {
     display:block;
 }
 
-select {
-    padding: 0.5em 0.3em;
-    height:47px;
-    font-size: 1.2em;
-    width: 245px;
-    cursor:pointer;
-    border-color:#CFCFCF;
+
+
+#whatIsYourPowerPlan {
+    float:right;
+    width:35%;    
+    padding-left:1em;
+    border-left:1px solid #F1F1F1;
+    height:100%;
+    margin-left:1em;
+    text-align:right;
 }
 
-.selectWrapper {
-    position:relative;
-}
-.selectWrapper:before {
-    pointer-events: none;
-    position: absolute;
-    content: url(images/cpp-dropdown-box-arrow.png);
-    right: 0;
-}
 
 #whatIsYourPowerPlan select {
     width:100%;
@@ -255,16 +282,6 @@ select {
 #titleDiv {
     width:auto;
     overflow:hidden;
-}
-
-#whatIsYourPowerPlan {
-    float:right;
-    width:35%;    
-    padding-left:1em;
-    border-left:1px solid #F1F1F1;
-    height:100%;
-    margin-left:1em;
-    text-align:right;
 }
 
 
@@ -397,6 +414,10 @@ select {
     margin-bottom:1em;
 }
 
+#powerPage h2 {
+    line-height:1em;
+}
+
 #by2030 {
     background-image:url(images/power/big-powerplant-icon.png);
     background-position: 2em 1em;
@@ -409,17 +430,11 @@ select {
     display:none;
 }
 
-#powerPage h2 {
-    line-height:1em;
-}
 
-label {
-    display:none;
-}
 
-.row { display:flex; }
 
-.row div { flex:1; }
+
+/* MEDIA CSS */
 
 @media only screen and (max-width: 1100px) {
     
@@ -452,7 +467,6 @@ label {
     }
 
 }
-
 
 @media only screen and (max-width: 400px) {
     
