@@ -15,7 +15,6 @@ app.controller("AppController", function ($window, $scope) {
     vm.loadStateData = function () {
         $.getJSON('data/stateData.json')
            .then(function(data){    
-            console.log(data);
             vm.states = data;
             $scope.$apply();
         });
@@ -25,6 +24,12 @@ app.controller("AppController", function ($window, $scope) {
     vm.selectedState=null;    
     vm.selectedPage="takingAction";    
     vm.loadStateData();
+    
+    
+        $scope.$watchGroup(['vm.selectedPage', 'vm.selectedState'], function(newValues, oldValues, scope) {
+               $('body').scrollTop(0);
+});
+   
 
 });
 
