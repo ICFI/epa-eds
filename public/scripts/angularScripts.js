@@ -21,6 +21,7 @@ app.controller("AppController", function ($window, $scope) {
         });
     };    
     
+    vm.possibleState=null;
     vm.selectedState=null;    
     vm.selectedPage="takingAction";    
     vm.loadStateData();
