@@ -228,13 +228,11 @@ select {
 #whatIsYourPowerPlan img {
     margin-top:2em;
     margin-right:-2em;   
-    float:right;
-    margin-bottom: 2em;
 }
         
  
 #whatIsYourPowerPlan h4 {
-    clear:both;
+    text-align:left;
 }
            
         
@@ -266,6 +264,7 @@ select {
     border-left:1px solid #F1F1F1;
     height:100%;
     margin-left:1em;
+    text-align:right;
 }
 
 
