@@ -1,7 +1,7 @@
 var app = angular.module("EPA-app", ['ngSanitize'] );
 
 
-app.controller("AppController", function ($window) {
+app.controller("AppController", function ($window, $scope) {
 
     
     var vm = this;
@@ -11,16 +11,22 @@ app.controller("AppController", function ($window) {
     vm.coalFactor = 0.000000263;
     
     
-    vm.sidebarOpen=false;
+    vm.sidebarOpen=true;
       
     
     vm.loadStateData = function () {
         $.getJSON('data/stateData.json')
            .then(function(data){    
             console.log(data);
-            vm.states = data;   
+            vm.states = data;
+            $scope.$apply();
         });
     };
+    
+    
+    
+    
+    vm.selectedState=null;
     
     vm.selectedPage="takingAction";
     
