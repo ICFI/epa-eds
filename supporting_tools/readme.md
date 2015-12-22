@@ -1,16 +1,15 @@
 # Supporting Files
-This is a Node.js application for searching drugs and side-effect interactions against
-the OpenFDA WebService. The primary stack consists of Node, Express and Angular.  Other 
-libraries are used for security handling and utility functions
+During development, we used several supporting tools and processes:
 
-## design
-
-
-## infrastruture
-
-
-## pictures
-
-
-##ux
+* design - Initial design compositions to illustrate the visual style of the website 
+* infrastructure -
+	* Slack - Team communication tool, with integrations to GitHub and Codeship  
+	* GitHub - Public code repository
+	* Codeship - Continuous delivery tool
+	* Cloud9 - Cloud-based IDE
+* pictures - Pictures of the team and whiteboard sessions showing the evolution of the website through the discovery and design phases
+* ux - 
+	* We Believe User Assumptions - Assumptions used to focus the scope and intended audience
+	* Wireframes - Initial wireframes
+	* User Testing Notes - Results of our wireframe user testing 
 
