@@ -1,3 +1,5 @@
+/* Basic element styling */
+
 html, body {
     height:100%;
 }
@@ -35,23 +37,51 @@ h4 {
 
 p {
     line-height:1.5em;
+    font-size:22px;
 }
+
+label {
+    display:none;
+}
+
+.row { display:flex; }
+
+.row div { flex:1; }
 
 .page {
     padding-left:2em;
     padding-right:2em;   
-    padding-bottom:2em
-    /*position:fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;*/
+    padding-bottom:2em;
+    max-width:1180px;
+    margin:auto;
+}
+
+
+select {
+    padding: 0.5em 0.3em;
+    height:47px;
+    font-size: 1.2em;
+    width: 245px;
+    cursor:pointer;
+    border-color:#CFCFCF;
+}
+
+.selectWrapper {
+    position:relative;
+}
+.selectWrapper:before {
+    pointer-events: none;
+    position: absolute;
+    content: url(images/cpp-dropdown-box-arrow.png);
+    right: 0;
 }
 
 #pages {
     margin-left:30px;
     transition:all 0.2s ease;
+    overflow:hidden;
 }
+
 #pages.sidebaroffset {
     margin-left:300px;
 }
@@ -72,6 +102,16 @@ p {
     background:#4F5FDA;
 }
 
+
+/* BASIC CLASS HELPERS */
+
+.greyBox {
+    background-color:#F8F8F8;
+    border: 1px solid #F1F1F1;
+    padding:1em;
+    box-sizing: border-box;
+}
+
 .center {
     text-align:center;
 }
@@ -80,16 +120,13 @@ p {
     clear:both;
 }
 
+.translucent {
+    opacity:0.6;
+}
+
 .separator {
     margin-bottom:2em;
     clear: both;
-}
-
-.greyBox {
-    background-color:#F8F8F8;
-    border: 1px solid #F1F1F1;
-    padding:1em;
-    box-sizing: border-box;
 }
 
 .green {
@@ -101,7 +138,7 @@ p {
 }
 
 .ultrafat {    
-    font-size: 72px;
+    font-size: 84px;
     font-weight: 800;
     margin-top:0;
     margin-bottom:0;
@@ -115,6 +152,10 @@ p {
     font-size:22px;
 }
 
+.small {
+    font-size:18px;
+}
+
 .thin {
     font-weight:100;
 }
@@ -124,10 +165,13 @@ p {
 }
 
 .sources {
-    padding-top:1em;
     padding-bottom:1em;
     border-top:1px solid #E4E4E4;
     font-weight:bold;
+}
+
+.sources p {
+    font-size:16px;
 }
 
 .equivalencyAmount {
@@ -135,15 +179,14 @@ p {
     font-size:32px !important;
 }
 
-
-
-
 #header {
     border-bottom:1px solid #E4E4E4;    
-    padding: 1em;
+    padding: 2em;
     margin-left: 2em;
     margin-bottom: 2em;
     margin-right: 2em;
+    max-width:1180px;
+    margin:auto;
 }
 
 #sidebar {
@@ -175,48 +218,24 @@ p {
 
 #sidebarHandleButton {
     background:#F1CD3D;
-    height:30px;
+    height:90px;
     margin-top:30px;
     cursor:pointer;
-    background:url('images/sidebar/menu-closed-block.png');    
+    background-image:url('images/sidebar/menu-closed-block.png');    
 }
 
 #sidebar.open #sidebarHandleButton {
-    background:url('images/sidebar/menu-opened-block.png');   
+    background-image:url('images/sidebar/menu-opened-block.png');   
 }
 
 #sidebarEPALogo {
-    position:absolute;
-    bottom:1em;
-    left:0;
-    right:30px;
     margin:auto;
+    margin-top:2em;
+    width: 65%;
+    display:block;
 }
 
-select {
-    padding: 0.8em 0.5em;
-    width: 245px;
-}
 
-#statePower select {
-    float:right;
-}
-
-#statePower h3 {
-    margin-top:0;
-}
-
-#sidebar select {
-    display: block;
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-#titleDiv {
-    width:auto;
-    overflow:hidden;
-}
 
 #whatIsYourPowerPlan {
     float:right;
@@ -225,6 +244,44 @@ select {
     border-left:1px solid #F1F1F1;
     height:100%;
     margin-left:1em;
+    text-align:right;
+}
+
+
+#whatIsYourPowerPlan select {
+    width:100%;
+}
+
+#whatIsYourPowerPlan img {
+    margin-top:2em;
+    margin-right:-2em;   
+}
+        
+ 
+#whatIsYourPowerPlan h4 {
+    text-align:left;
+}
+           
+        
+#statePower select {
+    float:right;
+}
+
+#statePower h3 {
+    margin-top:0;
+}
+
+#sidebar .selectWrapper {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 245px;
+}
+
+#titleDiv {
+    width:auto;
+    overflow:hidden;
 }
 
 
@@ -246,34 +303,41 @@ select {
 
 .takingActionPageBox h4 {
     margin-top:0;
+    margin-bottom:0;
 }
 
 #powerPageBox {
-    background:url(images/home/epp-box-corner.png);
+    background-image:url(images/home/epp-box-corner.png);
+}
+
+#powerPageBox h4 {
+    color:#014574;
+}
+
+#powerPageBox:hover h2 {
+    color:#022f4e;
+}
+
+#powerPageBox:hover {
+    border-color:#bdc3c7;
 }
 
 #trucksPageBox {
-    background:url(images/home/trucks-box-corner.png);
+    background-image:url(images/home/trucks-box-corner.png);
 }
 
 #oilPageBox {
-    background:url(images/home/oil-gas-box-corner.png);
+    background-image:url(images/home/oil-gas-box-corner.png);
 }
 
 #otherPageBox {
-    background:url(images/home/other-box-corner.png);
+    background-image:url(images/home/other-box-corner.png);
 }
 
 #commercialPageBox {
-    background:url(images/home/commercial-box-corner.png);
+    background-image:url(images/home/commercial-box-corner.png);
 }
 
-#seeYourStatesCommitment {
-    background:#F8F8F8;
-    border: 1px solid #F1F1F1;
-    padding:1em;
-    box-sizing: border-box;
-}
 
 
 .paneButton {
@@ -281,12 +345,12 @@ select {
     border-bottom: 1px solid #D4D4D4;
     cursor:pointer;
     font-weight:bold;
-    color:#595959;
+    color:#2C6187;
 }
 
 .paneButton.selected {
     background:#DDDDDD;
-    color:#2C6187;
+    color:#595959;
 }
 
 .paneButton.unselectable {
@@ -294,7 +358,7 @@ select {
 }
 
 .paneButton:hover{
-    background:#F4F7FF;
+    background:#FFF;
 }
 
 .paneButton.unselectable:hover{
@@ -333,9 +397,12 @@ select {
 
 #seeYourStatesCommitment {
     text-align:right;
-    background:url(images/power/green-trees.png) no-repeat left bottom;
+    background-image:url(images/power/green-trees.png);
+    background-position: 2em bottom;
+    background-repeat: no-repeat;
     background-size:auto 95%;
     padding-left:45%;
+    padding-right:2em;
     overflow:hidden;
 }
 
@@ -343,16 +410,103 @@ select {
     float:right;
     height:200px;
     margin-left:1em;
+    margin-right:-2em;
     margin-bottom:1em;
 }
 
-#by2030 {
-    height:250px;
-    min-height:250px; 
+#powerPage h2 {
+    line-height:1em;
 }
 
-#by2030 img {
-    height:100%;
-    margin-right: 10%;
-    float: left;
+#by2030 {
+    background-image:url(images/power/big-powerplant-icon.png);
+    background-position: 2em 1em;
+    background-repeat: no-repeat;
+    background-size:auto 90%;
+    padding-left:45%;
 }
+
+#by2030 > img {
+    display:none;
+}
+
+
+
+
+
+/* MEDIA CSS */
+
+@media only screen and (max-width: 1100px) {
+    
+    .row { display:block !important; }
+    .takingActionPageBox { margin-right:0 !important; width:auto !important; float:none !important; }
+    .equivalencyBox { margin-right:0 !important; width:auto !important; float:none !important; margin-bottom:1em !important;}
+    
+    #homeTopColumns { display: -webkit-box; display: -moz-box;     display: box; -webkit-box-orient: vertical; -moz-box-orient:vertical; box-orient: vertical; }
+    
+    #homeTopColumns > div {
+        float:none !important; width:auto !important; margin-right:0 !important; margin-left:0 !important;
+    }
+    
+    #whatIsYourPowerPlan { -webkit-box-ordinal-group: 2; -moz-box-ordinal-group: 2; box-ordinal-group: 2; border-left:0 !important; 
+    border-top:1px solid #F1F1F1; padding-left:0 !important; padding-top:1em !important;}
+    
+    #titleDiv { -webkit-box-ordinal-group: 1; -moz-box-ordinal-group: 1; box-ordinal-group: 1;}
+    
+  
+    #by2030 {
+        background-image:none !important; padding-left:1em !important; text-align:center !important; 
+    }
+    #by2030 > img  {
+        display:block !important; margin:auto !important; 
+    max-width: 100%!important;
+    }
+    
+    #statePower .row {
+        text-align:center !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 650px) {
+    
+    #seeYourStatesCommitment {
+        padding:1em !important;
+        background-size: auto 55% !important;
+        
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    
+    #donutChart {width:100% !important;}
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .takingActionPageBox { padding-right: 0px !important; 
+    padding-bottom: 110px !important;}
+    
+    
+    #seeYourStatesCommitment {
+        background-size: auto 35% !important;
+        background-position: 0.5em bottom !important;        
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    
+    .ultrafat { font-size:48px !important; }
+    
+    #seeYourStatesCommitment {
+        background-image:none !important;       
+    }
+    
+    #seeYourStatesCommitment select {
+        width:100% !important;
+    }
+    
+}
+

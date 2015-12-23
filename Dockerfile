@@ -10,7 +10,11 @@ RUN apt-get install -y nodejs npm git git-core curl
 COPY ./www/ /usr/local/share/www
 #COPY SSL CERT AND KEYS
 COPY ./config/ /usr/local/share/config
-COPY ./run.sh /usr/local/share/run.sh
+ADD  ./run.sh /usr/local/share/run.sh
+
+ADD  ./config/nginx/nginx.conf /etc/nginx/nginx.conf
+ADD  ./config/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+ADD  ./config/nginx/conf.d/bogus.conf /etc/nginx/conf.d/bogus.conf
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 0.12.4
@@ -29,20 +33,17 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 
 
-EXPOSE 80 443 8000
+#EXPOSE 80 443
+EXPOSE 8080
 
 ENV NODE_ENV  prod
 ENV PORT      8000
 
-#WORKDIR /usr/local/share
+WORKDIR /usr/local/share
 RUN /usr/local/share/run.sh
 
-WORKDIR /usr/local/share/www
-RUN npm cache clean && npm install --unsafe-perm
+#WORKDIR /usr/local/share/www
+#RUN npm cache clean && npm install --unsafe-perm
 
-RUN printenv
-
-
-WORKDIR /usr/local/share/www
 CMD [ "node", "server.js" ]
 CMD ["nginx", "-g", "daemon off;"]
