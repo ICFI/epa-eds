@@ -1,48 +1,36 @@
-# Title
-This is a Node.js application [...] he primary stack consists of Node, Express and Angular.  Other 
-libraries are used for security handling and utility functions
-
+# Install
 ## Prerequisites
 1. Install Node.js
-2. Install MongoDb
+2. Ensure outbound traffic is allowed in your environment over ports 80/443
 
 ## Components
-There are a couple of moving parts in this repository that you should
-know about before proceding:
+There are several components to the web application:
 
-1. The server in `server.js` is an [Express] app that renders an
-   HTML page which serves as entry point for the application.
-2. The server also contains a series of accessible APIs which service the application
-   but can also service other modes of multichannel communication
-3. The test suite is a [Mocha] test script that uses the PhantomJS [WebDriver] API 
-   to test APIs and supporting domain functions.
+1. Data - Uses a Talend data transformation routine to aggregate the power plan emissions per state for 2012 and compare that to the CPP targets per state for 2030
+2. Node.js - Server-side framework for the application
+3. Single page application - Main index.html file that uses Angular to interact with the data and change the current view
 
 
 ## Setup
 Clone this repo and install the dependencies via [npm]:
 
 ```sh
-git clone https://github.com/ICFI/epa-eds.git
-cd epa-eds
+git clone https://github.com/ICFI/EPA-EDS.git
+cd EPA-EDS
 npm install
 ```
 
-### Verify
-Next up, you can verify that the test server works by calling `node server.js`. This
-fires up an [Express] server that serves up a page with the entry point of the application. 
+## Verify
+Next, verify that the test server works by calling `node server.js`. This
+fires up an Express server that serves up a page with the entry point of the application. 
 You can confirm that it's running by visiting
 [http://localhost:3000](http://localhost:3000) in a web browser, or:
 
 ```sh
 curl -s http://localhost:3000
 ```
-For productioninstallations, it is recommended to use a process service such as PM2.
 
 
-### Run the Tests
-If code modifications are made, you should re-run the unit tests.
-In a shell, cd to the root application directory run the tests:
 
-```sh
-mocha test/server
-```
+
+
